@@ -351,29 +351,29 @@ void extract_arch_from_text(gchar *archname, const gchar* sourcename, bool* arch
         if (archname) {
             replacestr(archname, "-", "_");
             replacestr(archname, " ", "_");
-            if (g_ascii_strncasecmp("i386", archname, 4) == 0
-                    || g_ascii_strncasecmp("i486", archname, 4) == 0
-                    || g_ascii_strncasecmp("i586", archname, 4) == 0
-                    || g_ascii_strncasecmp("i686", archname, 4) == 0
-                    || g_ascii_strncasecmp("intel_80386", archname, 11) == 0
-                    || g_ascii_strncasecmp("intel_80486", archname, 11) == 0
-                    || g_ascii_strncasecmp("intel_80586", archname, 11) == 0
-                    || g_ascii_strncasecmp("intel_80686", archname, 11) == 0
+            if (g_ascii_strncasecmp("i386", archname, sizeof("i386")) == 0
+                    || g_ascii_strncasecmp("i486", archname, sizeof("i486")) == 0
+                    || g_ascii_strncasecmp("i586", archname, sizeof("i586")) == 0
+                    || g_ascii_strncasecmp("i686", archname, sizeof("i686")) == 0
+                    || g_ascii_strncasecmp("intel_80386", archname, sizeof("intel_80386")) == 0
+                    || g_ascii_strncasecmp("intel_80486", archname, sizeof("intel_80486")) == 0
+                    || g_ascii_strncasecmp("intel_80586", archname, sizeof("intel_80586")) == 0
+                    || g_ascii_strncasecmp("intel_80686", archname, sizeof("intel_80686")) == 0
                     ) {
                 archs[fARCH_i686] = 1;
                 if (verbose)
                     fprintf(stderr, "%s used for determining architecture i386\n", sourcename);
-            } else if (g_ascii_strncasecmp("x86_64", archname, 6) == 0) {
+            } else if (g_ascii_strncasecmp("x86_64", archname, sizeof("x86_64")) == 0) {
                 archs[fARCH_x86_64] = 1;
                 if (verbose)
                     fprintf(stderr, "%s used for determining architecture x86_64\n", sourcename);
-            } else if (g_ascii_strncasecmp("arm", archname, 3) == 0 ||
-                       g_ascii_strncasecmp("armhf", archname, 5) == 0) {
+            } else if (g_ascii_strncasecmp("arm", archname, sizeof("arm")) == 0 ||
+                       g_ascii_strncasecmp("armhf", archname, sizeof("armhf")) == 0) {
                 archs[fARCH_armhf] = 1;
                 if (verbose)
                     fprintf(stderr, "%s used for determining architecture ARM\n", sourcename);
-            } else if (g_ascii_strncasecmp("arm_aarch64", archname, 11) == 0 ||
-                       g_ascii_strncasecmp("aarch64", archname, 7) == 0) {
+            } else if (g_ascii_strncasecmp("arm_aarch64", archname, sizeof("arm_aarch64")) == 0 ||
+                       g_ascii_strncasecmp("aarch64", archname, sizeof("aarch64")) == 0) {
                 archs[fARCH_aarch64] = 1;
                 if (verbose)
                     fprintf(stderr, "%s used for determining architecture ARM aarch64\n", sourcename);

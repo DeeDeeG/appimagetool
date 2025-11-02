@@ -367,16 +367,16 @@ void extract_arch_from_text(gchar *archname, const gchar* sourcename, bool* arch
                 archs[fARCH_x86_64] = 1;
                 if (verbose)
                     fprintf(stderr, "%s used for determining architecture x86_64\n", sourcename);
-            } else if (g_ascii_strncasecmp("arm_aarch64", archname, 11) == 0 ||
-                       g_ascii_strncasecmp("aarch64", archname, 7) == 0) {
-                archs[fARCH_aarch64] = 1;
-                if (verbose)
-                    fprintf(stderr, "%s used for determining architecture ARM aarch64\n", sourcename);
             } else if (g_ascii_strncasecmp("arm", archname, 3) == 0 ||
                        g_ascii_strncasecmp("armhf", archname, 5) == 0) {
                 archs[fARCH_armhf] = 1;
                 if (verbose)
                     fprintf(stderr, "%s used for determining architecture ARM\n", sourcename);
+            } else if (g_ascii_strncasecmp("arm_aarch64", archname, 11) == 0 ||
+                       g_ascii_strncasecmp("aarch64", archname, 7) == 0) {
+                archs[fARCH_aarch64] = 1;
+                if (verbose)
+                    fprintf(stderr, "%s used for determining architecture ARM aarch64\n", sourcename);
             }
         }
     }
